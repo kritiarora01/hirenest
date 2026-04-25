@@ -1,131 +1,96 @@
-# 🚀 MERN Job Portal
+# 🐦 HireNest — Job Portal
 
-A full-stack job management application where users can **register, login, and manage jobs** (CRUD).  
-This project is built with **MongoDB, Express.js, React, and Node.js**.
-
----
+A full-stack MERN job portal where employers can post jobs and candidates can browse and apply. Built with React, Node.js, Express, and MongoDB.
 
 ## 🔗 Live Links
-- **Frontend:** https://mernjobportalclient.vercel.app/
-- **Backend:** https://mernjobportalserver-qxsnhu9kq-afrin1.vercel.app/  
-  
----
+
+- **Frontend:** https://hirenest-seven.vercel.app
+- **Backend:** https://hirenest-server.onrender.com
 
 ## ✨ Features
-- 🔐 User authentication with **JWT**
-- 👤 Users can **create, update, delete, and view** their own jobs
-- 🏢 Job fields:
-  - Title
-  - Company
-  - Location
-  - Description
-  - Price / Salary
-  - Remote / Onsite / Hybrid
-  - Technologies (multiple)
-  - CreatedAt timestamp
-- 🎨 Modern responsive UI with **React + TailwindCSS + Framer Motion**
-- ⚡ State management with **Context API**
 
----
+- JWT-based user authentication (Register/Login)
+- Post, edit, and delete job listings
+- Browse all available jobs publicly
+- Filter jobs by location, type, price range, and status
+- Apply Now button with external application link
+- Seller dashboard to manage your postings
+- Form validation on registration and login
+- Fully responsive UI
 
 ## 🛠️ Tech Stack
+
 **Frontend**
-- React.js
-- React Router
-- TailwindCSS
-- Framer Motion
+- React + Vite
+- Tailwind CSS
 - Axios
+- React Router
+- SweetAlert2
 
 **Backend**
 - Node.js
 - Express.js
 - MongoDB (Native Driver)
-- JWT Authentication
-- dotenv
+- JSON Web Tokens (JWT)
+- bcryptjs
 
----
+**Deployment**
+- Frontend: Vercel
+- Backend: Render
+- Database: MongoDB Atlas
 
-## 📂 Project Structure
-```
-mern-job-portal/
-├── client/              # React frontend
-│   ├── src/
-│   │   ├── components/  # Header, SearchBar, etc.
-│   │   ├── pages/       # MyJobs, Login, Register
-│   │   ├── context/     # AuthContext
-│   │   └── api/         # jobs.js (Axios calls)
-│   └── package.json
-│
-├── server/              # Express backend
-│   ├── config/          # db.js (Mongo connection)
-│   ├── controllers/     # jobController.js, authController.js
-│   ├── middleware/      # auth.js
-│   ├── models/          # Job.js, User.js
-│   ├── routes/          # jobRoutes.js, authRoutes.js
-│   ├── index.js         # App entry point
-│   └── package.json
-│
-├── .env                 # Environment variables
-└── README.md
-```
+## 🚀 Run Locally
 
----
-
-## ⚙️ Installation
-
-### 1️⃣ Clone Repository
+**1. Clone the repo**
 ```bash
-git clone https://github.com/yourusername/mern-job-portal.git
-cd mern-job-portal
+git clone https://github.com/kritiarora01/hirenest.git
+cd hirenest
 ```
 
-### 2️⃣ Setup Backend
+**2. Setup Backend**
 ```bash
 cd server
 npm install
 ```
 
-Create a `.env` file:
+Create a `.env` file in the server folder:
 ```
-MONGO_URI=mongodb+srv://<your_mongo_uri>
-JWT_SECRET=your_jwt_secret
 PORT=5000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
 ```
 
-Run backend:
 ```bash
-npm run dev
+node index.js
 ```
 
-### 3️⃣ Setup Frontend
+**3. Setup Frontend**
 ```bash
-cd ../client
+cd client
 npm install
 npm run dev
 ```
 
----
+Open `http://localhost:5173` in your browser.
 
-## 🔑 API Endpoints
+## 📁 Project Structure
 
-### Auth
-- `POST /api/auth/register` → Register new user  
-- `POST /api/auth/login` → Login user  
+```
+hirenest/
+├── client/          # React frontend
+│   └── src/
+│       ├── api/         # Axios API calls
+│       ├── components/  # Header, Footer, JobCard, JobForm
+│       ├── context/     # Auth context
+│       ├── pages/       # Home, Login, Register, Seller, AllJobs, AddJob
+│       └── routes/      # App routes, Private route
+├── server/          # Express backend
+│   ├── controllers/ # Auth & Job controllers
+│   ├── middleware/  # JWT auth middleware
+│   ├── models/      # User & Job models
+│   └── routes/      # Auth & Job routes
+```
 
-### Jobs (Protected by JWT)
-- `POST /api/jobs` → Create job  
-- `GET /api/jobs` → Get logged-in user's jobs  
-- `PUT /api/jobs/:id` → Update job  
-- `DELETE /api/jobs/:id` → Delete job  
----
+## 👩‍💻 Author
 
-## 🤝 Contributing
-Pull requests are welcome! For major changes, please open an issue first.
-
----
-
-## 📜 License
-MIT License © 2025
-
-
-
+**Kriti Arora** — [@kritiarora01](https://github.com/kritiarora01)
